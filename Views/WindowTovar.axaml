@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MyAvaloniaApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:model="using:MyAvaloniaApp.Models"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="150" Width = "800" Height = "600"
+        x:Class="MyAvaloniaApp.Views.WindowTovar"
+        x:DataType="vm:TovarViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Товар">
+    <Window.Resources>    
+        <DataTemplate x:Key="tovarTemplate" DataType="model:Tovar">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width = "75"/>
+                    <ColumnDefinition Width = "400"/>
+                    <ColumnDefinition Width = "125"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"  />
+                <StackPanel Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontWeight="Bold" Text="{Binding Category}"/>
+                        <TextBlock FontWeight="Bold" Text="||"/>
+                        <TextBlock FontWeight="Bold" Text="{Binding NameTovar}"/>
+                    </StackPanel>
+                    <TextBlock Text ="{Binding Manufacture}"/>
+                    <TextBlock Text="{Binding Supplier}"/>
+                    <TextBlock Text="{Binding Price}"/>
+                    <TextBlock Text="{Binding Unit}"/>
+                    <TextBlock Text="{Binding Quantity}"/>
+                </StackPanel>
+                <StackPanel Grid.Column= "2" Orientation="Horizontal">
+                    <TextBlock HorizontalAlignment="Center" FontSize="50" VerticalAlignment="Center" Text="{Binding Discount}"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="50" VerticalAlignment="Center" Text="%"/>
+                </StackPanel>
+            </Grid> 
+        </DataTemplate>
+    </Window.Resources>
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:TovarViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "600"/>
+            <ColumnDefinition Width = "200"/>
+        </Grid.ColumnDefinitions>
+        <ListBox SelectionMode = "Single" Grid.Column = "0" ItemsSource = "{Binding TovarList}"/>   
+    </Grid>
+
+</Window>
