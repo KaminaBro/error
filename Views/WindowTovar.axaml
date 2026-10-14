@@ -4,12 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:model="using:MyAvaloniaApp.Models"
+        xmlns:Converter="using:MyAvalonaApp.Converters"
         mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="150" Width = "800" Height = "600"
         x:Class="MyAvaloniaApp.Views.WindowTovar"
         x:DataType="vm:TovarViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="Товар">
+
     <Window.Resources>    
+        <Converter:PathToBitmapConverter x:Key="PathToBitmapConverter"/>
         <DataTemplate x:Key="tovarTemplate" DataType="model:Tovar">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -17,7 +20,7 @@
                     <ColumnDefinition Width = "400"/>
                     <ColumnDefinition Width = "125"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0"  />
+                <Image Grid.Column="0" Source="{Binding Photo, Converter={StaticResource PathToBitmapConverter}}" />
                 <StackPanel Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontWeight="Bold" Text="{Binding Category}"/>
@@ -49,7 +52,8 @@
             <ColumnDefinition Width = "600"/>
             <ColumnDefinition Width = "200"/>
         </Grid.ColumnDefinitions>
-        <ListBox SelectionMode = "Single" Grid.Column = "0" ItemsSource = "{Binding TovarList}"/>   
+        <ListBox SelectionMode = "Single" Grid.Column = "0" ItemsSource = "{Binding TovarList}"
+        ItemTemplate="{StaticResource tovarTemplate}"/>   
     </Grid>
 
 </Window>

@@ -2,8 +2,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using MyAvaloniaApp.Models;
 using System.Threading.Tasks;
+using MyAvaloniaApp.Models;
+using System.Linq; 
 
 namespace MyAvaloniaApp.ViewModels;
 

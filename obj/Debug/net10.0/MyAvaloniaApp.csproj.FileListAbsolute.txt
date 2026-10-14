@@ -188,3 +188,4 @@
 /home/user/VisualStudio/MyAvaloniaApp/obj/Debug/net10.0/MyAvaloniaApp.pdb
 /home/user/VisualStudio/MyAvaloniaApp/obj/Debug/net10.0/MyAvaloniaApp.genruntimeconfig.cache
 /home/user/VisualStudio/MyAvaloniaApp/obj/Debug/net10.0/ref/MyAvaloniaApp.dll
+/home/user/VisualStudio/MyAvaloniaApp/obj/Debug/net10.0/MyAvaloniaApp.sourcelink.json
